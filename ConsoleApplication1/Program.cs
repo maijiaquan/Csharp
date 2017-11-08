@@ -10,7 +10,7 @@
     C#的变量分类
     C#的常量（常量和const关键字）
     C#的结构体的使用
-    C#的几种访问修饰符的区别（public、private、protected、internal、protected internal）
+    C#类的几种访问修饰符的区别（public、private、protected、internal、protected internal）
     Lua的8种基本类型
     
 
@@ -38,9 +38,16 @@ namespace RectangleApplication
 {
     class Rectangle
     {
-        public double length;
-        public double width;
+        private double length;
+        private double width;
 
+        public void Acceptdetails()
+        {
+            Console.WriteLine("请输入长度：");
+            length = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("请输入宽度：");
+            width = Convert.ToDouble(Console.ReadLine());
+        }
         public double GetArea()
         {
             return length * width;
@@ -53,15 +60,12 @@ namespace RectangleApplication
             Console.WriteLine("面积： {0}", GetArea());
         }
     }
-
-
     class ExecuteRectangle
     {
         static void Main(string[] args)
         {
             Rectangle r = new Rectangle();
-            r.length = 4.5;
-            r.width = 3.5;
+            r.Acceptdetails();
             r.Display();
             Console.ReadLine();
         }
