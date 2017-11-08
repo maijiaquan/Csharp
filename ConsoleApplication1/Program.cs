@@ -1,30 +1,76 @@
 ﻿using System;   //using的作用是包含命名空间
 
-/*
-变量和常量    2017.11.8   
 
-    1.lvalue：lvalue 表达式可以出现在赋值语句的左边或右边。
-        变量是 lvalue 的，所以可以出现在赋值语句的左边。
-    2.rvalue：rvalue 表达式可以出现在赋值语句的右边，不能出现在赋值语句的左边。
-        数值是 rvalue 的，因此不能被赋值，不能出现在赋值语句的左边。
-        举例：
-            int g = 20; //有效的语句
-            10 = 20;    //无效的语句
+//C#结构体  2017.11.8
+
+/*
+已学习内容：
+    C#程序的组成（using关键字、类、main函数等）
+    C#装箱和拆箱的概念
+    C#的几种数据类型（值类型、引用类型、指针类型）
+    C#简单的类型转换（隐式——例如double转int、显式——例如装箱）
+    lvalue和rvalue的概念
+    C#的变量分类
+    C#的常量（常量和const关键字）
+    
+    感想和理解：
+        C#万物皆类
+        Lua是脚本语言
+待补充
+    结构体
+    类
+    运算符
+    判断
+    循环
+    数组
+    字符串
 */
 
-namespace DeclaringConstants
+struct Books
 {
-    class Program
+    public string title;
+    public string author;
+    public string subject;
+    public int book_id;
+
+};
+
+class StructureTest
+{
+    public static void Main(string[] args)
     {
-        static void Main(string[] args)
-        {
-            const double pi = 3.14159; // 常量声明
-            double r;
-            Console.WriteLine("Enter Radius: ");
-            r = Convert.ToDouble(Console.ReadLine());
-            double areaCircle = pi * r * r;
-            Console.WriteLine("Radius: {0}, Area: {1}", r, areaCircle);
-            Console.ReadLine();
-        }
+
+        Books Book1;        /* 声明 Book1，类型为 Book */
+        Books Book2;        /* 声明 Book2，类型为 Book */
+
+        /* book 1 详述 */
+        Book1.title = "C Programming";
+        Book1.author = "Nuha Ali";
+        Book1.subject = "C Programming Tutorial";
+        Book1.book_id = 6495407;
+
+        /* book 2 详述 */
+        Book2.title = "Telecom Billing";
+        Book2.author = "Zara Ali";
+        Book2.subject = "Telecom Billing Tutorial";
+        Book2.book_id = 6495700;
+
+        /* 打印 Book1 信息 */
+        Console.WriteLine("Book 1 title : {0}", Book1.title);
+        Console.WriteLine("Book 1 author : {0}", Book1.author);
+        Console.WriteLine("Book 1 subject : {0}", Book1.subject);
+        Console.WriteLine("Book 1 book_id :{0}", Book1.book_id);
+
+        Console.WriteLine(" ");
+
+
+        /* 打印 Book2 信息 */
+        Console.WriteLine("Book 2 title : {0}", Book2.title);
+        Console.WriteLine("Book 2 author : {0}", Book2.author);
+        Console.WriteLine("Book 2 subject : {0}", Book2.subject);
+        Console.WriteLine("Book 2 book_id : {0}", Book2.book_id);
+
+        Console.ReadKey();
+
     }
 }
