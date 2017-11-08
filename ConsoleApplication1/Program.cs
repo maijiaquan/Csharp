@@ -1,7 +1,4 @@
-﻿using System;   //using的作用是包含命名空间
-
-
-//C#结构体2  2017.11.8
+﻿//C#的几种访问修饰符的区别  2017.11.8
 
 /*
 已学习内容：
@@ -13,7 +10,7 @@
     C#的变量分类
     C#的常量（常量和const关键字）
     C#的结构体的使用
-
+    C#的几种访问修饰符的区别（public、private、protected、internal、protected internal）
     Lua的8种基本类型
     
 
@@ -34,44 +31,39 @@
     Lua是脚本语言
 */
 
-struct Books
-{
-    public string title;
-    public string author;
-    public string subject;
-    public int book_id;
 
-    public void setValues(string t, string a, string s, int id)
+using System;
+
+namespace RectangleApplication
+{
+    class Rectangle
     {
-        title = t;
-        author = a;
-        subject = s;
-        book_id = id;
+        public double length;
+        public double width;
+
+        public double GetArea()
+        {
+            return length * width;
+        }
+
+        public void Display()
+        {
+            Console.WriteLine("长度： {0}", length);
+            Console.WriteLine("宽度： {0}", width);
+            Console.WriteLine("面积： {0}", GetArea());
+        }
     }
 
-    public void display()
+
+    class ExecuteRectangle
     {
-        Console.WriteLine("Title : {0}", title);
-        Console.WriteLine("Author : {0}", author);
-        Console.WriteLine("Subject : {0}", subject);
-        Console.WriteLine("Book_id :{0}", book_id);
-    }
-};
-
-class StructureTest
-{
-    public static void Main(string[] args)
-    {
-        Books Book1 = new Books(); 
-        Books Book2 = new Books(); 
-
-        Book1.setValues("C Programming", "Nuha Ali", "C Programming Tutorial", 6495407);
-        Book2.setValues("Telecom Billing", "Zara Ali", "Telecom Billing Tutorial", 6495700);
-
-        Book1.display();
-        Book2.display();
-
-        Console.ReadKey();
-        Console.ReadKey();
+        static void Main(string[] args)
+        {
+            Rectangle r = new Rectangle();
+            r.length = 4.5;
+            r.width = 3.5;
+            r.Display();
+            Console.ReadLine();
+        }
     }
 }
