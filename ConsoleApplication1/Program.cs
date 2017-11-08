@@ -1,35 +1,30 @@
 ﻿using System;   //using的作用是包含命名空间
 
 /*
-简单的类型转换    2017.11.8   
-    1.隐式类型转换
-        以安全方式进行的转换, 不会导致数据丢失
-        例如，从小的整数类型转换为大的整数类型，从派生类转换为基类。
-    2.显式类型转换 
-        即强制类型转换，需要强制转换运算符，会造成数据丢失。
+变量和常量    2017.11.8   
 
+    1.lvalue：lvalue 表达式可以出现在赋值语句的左边或右边。
+        变量是 lvalue 的，所以可以出现在赋值语句的左边。
+    2.rvalue：rvalue 表达式可以出现在赋值语句的右边，不能出现在赋值语句的左边。
+        数值是 rvalue 的，因此不能被赋值，不能出现在赋值语句的左边。
+        举例：
+            int g = 20; //有效的语句
+            10 = 20;    //无效的语句
 */
 
-namespace TypeConversionApplication
+namespace DeclaringConstants
 {
-    class TypeConversion  
+    class Program
     {
         static void Main(string[] args)
         {
-            //显式类型转换，导致数据丢失
-            double dvar = 123.45;
-            int num;
-            num = (int)dvar;
-            Console.WriteLine(num);  //123
-
-            double d = 2345.6789;
-            Console.WriteLine(d.ToString());
-
-            num = Convert.ToInt32(Console.ReadLine());
-            //类似于cin，由于Console.ReadLine() 只接受字符串格式的数据，所以要把用户输入的数据转换为 int 数据类型
-            Console.WriteLine(num);  
-
-            Console.ReadKey();
+            const double pi = 3.14159; // 常量声明
+            double r;
+            Console.WriteLine("Enter Radius: ");
+            r = Convert.ToDouble(Console.ReadLine());
+            double areaCircle = pi * r * r;
+            Console.WriteLine("Radius: {0}, Area: {1}", r, areaCircle);
+            Console.ReadLine();
         }
     }
 }
