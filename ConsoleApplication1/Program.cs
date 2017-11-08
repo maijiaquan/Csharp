@@ -10,7 +10,8 @@
     C#的变量分类
     C#的常量（常量和const关键字）
     C#的结构体的使用
-    C#类的几种访问修饰符的区别（public、private、protected、internal、protected internal）
+    C#类的几种访问修饰符的区别（public、private、protected、internal）
+
     Lua的8种基本类型
     
 
@@ -23,8 +24,8 @@
     数组
     字符串
 
-待解决：
-    函数的缺省类型是public吗？
+已解决的问题：
+    函数的缺省类型是private
 
 感想和理解：
     C#万物皆类
@@ -38,21 +39,13 @@ namespace RectangleApplication
 {
     class Rectangle
     {
-        private double length;
-        private double width;
+        internal double length;
+        internal double width;
 
-        public void Acceptdetails()
-        {
-            Console.WriteLine("请输入长度：");
-            length = Convert.ToDouble(Console.ReadLine());
-            Console.WriteLine("请输入宽度：");
-            width = Convert.ToDouble(Console.ReadLine());
-        }
-        public double GetArea()
+        double GetArea()  //类成员的默认访问修饰符为 private
         {
             return length * width;
         }
-
         public void Display()
         {
             Console.WriteLine("长度： {0}", length);
@@ -65,7 +58,8 @@ namespace RectangleApplication
         static void Main(string[] args)
         {
             Rectangle r = new Rectangle();
-            r.Acceptdetails();
+            r.length = 4.5;
+            r.width = 3.5;
             r.Display();
             Console.ReadLine();
         }
