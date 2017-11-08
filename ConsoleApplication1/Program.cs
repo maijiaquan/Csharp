@@ -24,6 +24,11 @@ namespace TypeConversionApplication
 
             double d = 2345.6789;
             Console.WriteLine(d.ToString());
+
+            num = Convert.ToInt32(Console.ReadLine());
+            //类似于cin，由于Console.ReadLine() 只接受字符串格式的数据，所以要把用户输入的数据转换为 int 数据类型
+            Console.WriteLine(num);  
+
             Console.ReadKey();
         }
     }
