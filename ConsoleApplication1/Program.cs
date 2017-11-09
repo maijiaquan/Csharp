@@ -29,11 +29,15 @@
 
 感想和理解：
     C#万物皆类
-    Lua是脚本语言
+    Lua是一种轻量小巧的脚本语言
+    
+备注：今天刚刚适应了工作环境，学习时间有限，总结也有限。明天的收货和总结会更多更全面。
+
 */
 
 
 using System;
+
 
 namespace RectangleApplication
 {
