@@ -1,27 +1,25 @@
 ﻿using System;
-abstract class Shape
-{
-    int a = 1;  //可以有成员变量
-    public void printInfo()
-    {
-        Console.WriteLine();
-    }
 
-    public abstract int area();
+class Publisher
+{
+    public delegate void PublishEventHandler();
+    public event PublishEventHandler OnPublish;
+
+    public void issue() //触发事件的函数
+    {
+        if (OnPublish != null)
+        {
+            Console.WriteLine("publish");
+            OnPublish();  //触发事件
+        }
+    }
 }
 
-class Rectangle : Shape
+class Subscriber
 {
-    private int length;
-    private int width;
-    public Rectangle(int w, int l)
+    public static void recv()
     {
-        length = l;
-        width = w;
-    }
-    public override int area()
-    {
-        return width * length;
+        Console.WriteLine("receive");
     }
 }
 
@@ -29,9 +27,10 @@ class TestClass
 {
     static void Main(string[] args)
     {
-        Rectangle rect = new Rectangle(10, 5);
-        double a = rect.area();
-        Console.WriteLine("area = {0}", a);
-        Console.ReadKey();
+        Publisher publisher = new Publisher();
+        publisher.OnPublish += Subscriber.recv;
+        //publisher.OnPublish += new Publisher.PublishEventHandler(Subscriber.recv);
+        publisher.issue();
+        System.Console.ReadKey();
     }
 }
